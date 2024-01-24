@@ -22,6 +22,7 @@ import { isImageSourcePropType } from '@/types/guards/image';
 import SendImage from '@/theme/assets/images/send.png';
 import ColorsWatchImage from '@/theme/assets/images/colorswatch.png';
 import TranslateImage from '@/theme/assets/images/translate.png';
+import React from 'react';
 
 function Example() {
 	const { t } = useTranslation(['example', 'welcome']);
@@ -76,8 +77,7 @@ function Example() {
 					layout.flex_1,
 					layout.justifyCenter,
 					layout.itemsCenter,
-				]}
-			>
+				]}>
 				<View
 					style={[
 						layout.flex_1,
@@ -85,13 +85,20 @@ function Example() {
 						layout.fullWidth,
 						layout.justifyCenter,
 						layout.itemsCenter,
-					]}
-				>
+					]}>
 					<View
-						style={[layout.absolute, backgrounds.gray100, components.circle250]}
+						style={[
+							layout.absolute,
+							backgrounds.gray100,
+							components.circle250,
+						]}
 					/>
 
-					<View style={[layout.absolute, gutters.paddingTop_80]}>
+					<View
+						style={[
+							layout.absolute,
+							gutters.paddingTop_80,
+						]}>
 						<Brand height={300} width={300} />
 					</View>
 				</View>
@@ -104,10 +111,14 @@ function Example() {
 						layout.fullWidth,
 						gutters.paddingHorizontal_32,
 						gutters.marginTop_40,
-					]}
-				>
+					]}>
 					<View>
-						<Text style={[fonts.size_40, fonts.gray800, fonts.bold]}>
+						<Text
+							style={[
+								fonts.size_40,
+								fonts.gray800,
+								fonts.bold,
+							]}>
 							{t('welcome:title')}
 						</Text>
 						<Text
@@ -116,8 +127,7 @@ function Example() {
 								fonts.bold,
 								fonts.size_24,
 								gutters.marginBottom_32,
-							]}
-						>
+							]}>
 							{t('welcome:subtitle')}
 						</Text>
 						<Text style={[fonts.size_16, fonts.gray200]}>
@@ -131,13 +141,18 @@ function Example() {
 							layout.justifyBetween,
 							layout.fullWidth,
 							gutters.marginTop_16,
-						]}
-					>
+						]}>
 						<TouchableOpacity
 							testID="fetch-user-button"
-							style={[components.buttonCircle, gutters.marginBottom_16]}
-							onPress={() => setCurrentId(Math.ceil(Math.random() * 10 + 1))}
-						>
+							style={[
+								components.buttonCircle,
+								gutters.marginBottom_16,
+							]}
+							onPress={() =>
+								setCurrentId(
+									Math.ceil(Math.random() * 10 + 1)
+								)
+							}>
 							{isFetching ? (
 								<ActivityIndicator />
 							) : (
@@ -150,9 +165,11 @@ function Example() {
 
 						<TouchableOpacity
 							testID="change-theme-button"
-							style={[components.buttonCircle, gutters.marginBottom_16]}
-							onPress={() => onChangeTheme()}
-						>
+							style={[
+								components.buttonCircle,
+								gutters.marginBottom_16,
+							]}
+							onPress={() => onChangeTheme()}>
 							<ImageVariant
 								source={ColorsWatchImage}
 								style={{ tintColor: colors.purple500 }}
@@ -161,11 +178,15 @@ function Example() {
 
 						<TouchableOpacity
 							testID="change-language-button"
-							style={[components.buttonCircle, gutters.marginBottom_16]}
+							style={[
+								components.buttonCircle,
+								gutters.marginBottom_16,
+							]}
 							onPress={() =>
-								onChangeLanguage(i18next.language === 'fr' ? 'en' : 'fr')
-							}
-						>
+								onChangeLanguage(
+									i18next.language === 'fr' ? 'en' : 'fr'
+								)
+							}>
 							<ImageVariant
 								source={TranslateImage}
 								style={{ tintColor: colors.purple500 }}

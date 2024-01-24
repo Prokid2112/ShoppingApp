@@ -59,9 +59,9 @@ module.exports = {
 					execSync('cp -R src/theme/assets js/src/theme/assets');
 
 					console.log('♻️  Replacing source...');
-					execSync('rm -rf src', { stdio: 'pipe' });
+					execSync('del -rf src', { stdio: 'pipe' });
 					execSync('cp -R js/src ./src', { stdio: 'pipe' });
-					execSync('rm -rf js', { stdio: 'pipe' });
+					execSync('del -rf js', { stdio: 'pipe' });
 				} catch (error) {
 					console.error(
 						'🚨 Failed to copy assets or replace source. If you are using windows, please use git bash.'
@@ -71,14 +71,14 @@ module.exports = {
 
 				console.log('💣 change eslint config...');
 				execSync('cp .eslintrcJsVersion.js .eslintrc.js', { stdio: 'pipe' });
-				execSync('rm .eslintrcJsVersion.js', { stdio: 'pipe' });
+				execSync('del .eslintrcJsVersion.js', { stdio: 'pipe' });
 
 				console.log('🌀 Removing types ...');
-				execSync('rm -rf src/types/theme', { stdio: 'pipe' });
-				execSync('rm -rf src/types/*.ts', { stdio: 'pipe' });
+				execSync('del -rf src/types/theme', { stdio: 'pipe' });
+				execSync('del -rf src/types/*.ts', { stdio: 'pipe' });
 
 			} else {
-				execSync('rm .eslintrcJsVersion.js', { stdio: 'pipe' });
+				execSync('del .eslintrcJsVersion.js', { stdio: 'pipe' });
 			}
 
 			resolve();
